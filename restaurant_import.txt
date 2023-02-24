@@ -1,1 +1,3 @@
 TODO: Task 1 - Write the mongo import command here
+railway: mongoimport --uri "mongodb://mongo:yxI1wR23v5dgOYxgKSwf@containers-us-west-54.railway.app:5622/csf-assessment?authSource=admin" --collection "restaurants" --jsonArray "C:\Users\Brendon\JavaProjects\csf projs\csf-assessment\restaurants.json"
+local: mongoimport --host "localhost" --port "27017" --db "csf-assessment" --collection "restaurants" --jsonArray "C:\Users\Brendon\JavaProjects\csf projs\csf-assessment\restaurants.json"

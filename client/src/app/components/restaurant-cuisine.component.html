@@ -1,1 +1,7 @@
-<p>restaurant-cuisine works!</p>
+<h2>{{cuisine}} Restaurant List</h2>
+
+<div>
+    <mat-card [routerLink]="[restaurant]" *ngFor="let restaurant of restaurantList">
+      <mat-card-content>{{ restaurant }}</mat-card-content>
+    </mat-card>
+</div>
