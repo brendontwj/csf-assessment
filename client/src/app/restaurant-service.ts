@@ -16,7 +16,7 @@ export class RestaurantService {
 		// Implememntation in here
 		return lastValueFrom(
 			this.httpClient.get<any>(
-				'http://localhost:8080/api/cuisines'
+				'https://troubled-flock-production.up.railway.app/api/cuisines'
 			)
 		)
 	}
@@ -29,7 +29,7 @@ export class RestaurantService {
 		// Implememntation in here
 		return lastValueFrom(
 			this.httpClient.get<any>(
-				`http://localhost:8080/api/${cuisine}/restaurants`
+				`https://troubled-flock-production.up.railway.app/${cuisine}/restaurants`
 			)
 		)
 	}
@@ -42,7 +42,7 @@ export class RestaurantService {
 		// Implememntation in here
 		return lastValueFrom(
 			this.httpClient.get<Restaurant>(
-				`http://localhost:8080/api/${cuisine}/${restaurant}/details`	
+				`https://troubled-flock-production.up.railway.app/${cuisine}/${restaurant}/details`	
 			)
 		)
 	}
@@ -54,7 +54,7 @@ export class RestaurantService {
 		// Implememntation in here
 		return lastValueFrom(
 			this.httpClient.post<Restaurant>(
-				`http://localhost:8080/api/comments`, comment
+				`https://troubled-flock-production.up.railway.app/api/comments`, comment
 			)
 		)
 	}

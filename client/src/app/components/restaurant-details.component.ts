@@ -45,9 +45,9 @@ export class RestaurantDetailsComponent implements OnInit {
   }
 
   getRestaurant() {
-    this.restaurantService.getRestaurantsByCuisine(this.restaurantCuisine, this.restaurantName)
+    this.restaurantService.getRestaurant(this.restaurantCuisine, this.restaurantName)
       .then((result) => {
-        this.restaurant = result['restaurant']
+        this.restaurant = result
       }).catch((err) => {
         console.log(err)
       })
