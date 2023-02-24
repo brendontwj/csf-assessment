@@ -1,1 +1,32 @@
-<p>restaurant-details works!</p>
+<h2>Name: <span>{{restaurant.name}}</span></h2>
+<h2>Cuisine: <span>{{restaurant.cuisine}}</span></h2>
+<h2>Address: <span>{{restaurant.address}}</span></h2>
+
+<img data-th-src="|${restaurant.mapUrl}|">
+
+<h1>Comment</h1>
+<form [formGroup]="form">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" formControlName="name"></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <select formControlName="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+        </tr>
+        <textarea formControlName="text" cols="30" rows="10"></textarea>
+        <div class="buttons">
+            <button type="button">Back</button>
+            <button type="submit"></button>
+        </div>
+    </table>
+</form>

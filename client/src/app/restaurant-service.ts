@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Restaurant, Comment } from './models'
 import { lastValueFrom } from 'rxjs'
 import { Injectable } from '@angular/core'
@@ -38,15 +38,24 @@ export class RestaurantService {
 	// Use this method to find a specific restaurant
 	// You can add any parameters (if any) 
 	// DO NOT CHNAGE THE METHOD'S NAME OR THE RETURN TYPE
-	// public getRestaurant(name: string): Promise<Restaurant> {
-	// 	// Implememntation in here
-	// }
+	public getRestaurant(cuisine: string, restaurant: string): Promise<Restaurant> {
+		// Implememntation in here
+		return lastValueFrom(
+			this.httpClient.get<Restaurant>(
+				`http://localhost:8080/api/${cuisine}/${restaurant}/details`	
+			)
+		)
+	}
 
-	// // TODO Task 5
-	// // Use this method to submit a comment
-	// // DO NOT CHANGE THE METHOD'S NAME OR SIGNATURE
-	// public postComment(comment: Comment): Promise<any> {
-	// 	// Implememntation in here
-
-	// }
+	// TODO Task 5
+	// Use this method to submit a comment
+	// DO NOT CHANGE THE METHOD'S NAME OR SIGNATURE
+	public postComment(comment: Comment): Promise<any> {
+		// Implememntation in here
+		return lastValueFrom(
+			this.httpClient.post<Restaurant>(
+				`http://localhost:8080/api/comments`, comment
+			)
+		)
+	}
 }

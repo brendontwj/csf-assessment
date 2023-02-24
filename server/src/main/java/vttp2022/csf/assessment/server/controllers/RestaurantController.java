@@ -89,17 +89,18 @@ public class RestaurantController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resp.toString());
         }
         Restaurant details = opt.get();
+        String key = "";
         byte[] image = mapCache.getMap(details.getCoordinates().getLatitude(), details.getCoordinates().getLongitude());
         if (image == null) {
             image = getMapDetails(details.getCoordinates().getLatitude(), details.getCoordinates().getLongitude());
-            mapCache.saveMap(details.getCoordinates().getLatitude(), details.getCoordinates().getLongitude(),image);
+            key = mapCache.saveMap(details.getCoordinates().getLatitude(), details.getCoordinates().getLongitude(),image);
         }
         JsonObject payload = Json.createObjectBuilder()
             .add("restaurant_id", details.getRestaurantId())
             .add("name", details.getName())
             .add("cuisine", details.getCuisine())
             .add("address", details.getAddress())
-            .add("mapUrl", "https://deadmanfred.sgp1.digitaloceanspaces.com/${key}")
+            .add("mapUrl", "https://deadmanfred.sgp1.digitaloceanspaces.com/%s".formatted(key))
             .build();
         return ResponseEntity.ok(payload.toString());
     }
